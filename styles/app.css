@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    width: 100%;
+    background-color: darkgray;
+}
+header{
+    background-color: purple;
+    padding: 0.5rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+section{
+    width: 100%;
+}
+main{
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+.card, .card__output{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid purple;
+    border-radius: 10px;
+    /* background-color:olivedrab; */
+    width: 50%;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    color: white;
+
+}
+.card__title input{
+    font: inherit;
+    border:1px solid #023d6d;
+    padding: 1rem;
+    width: 10rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+    color: #023d6d;
+    font-size: 3rem;
+    text-align: center;
+}
+.card__actions{
+    margin-top: 0.5rem;
+}
+.card__actions button{
+    margin: 0;
+    padding: 0.5rem;
+    font: inherit;
+    width: 4rem;
+    font-size: 3rem;
+   cursor: pointer;
+    color: white;
+    border:1px solid #023d6d;
+    text-align: center;
+    background-color: purple;
+}
+.card__output{
+    color: purple;
+}
