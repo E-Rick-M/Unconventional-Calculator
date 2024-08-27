@@ -45,36 +45,54 @@ const writeToLog = (
   console.log(logEntries);
 };
 
-const add = (num1, num2) => {
-  const enteredNumber = getUserInput();
+const calculateResult = (calculationType) => {
+    const enteredNumber = getUserInput();
+  if (
+    calculationType !== "Add" &&
+    calculationType !== "Subtract" &&
+    calculationType !== "Multiply" &&
+    calculationType !== "Divide"||
+    !enteredNumber
+  ) {
+    return;
+  }
+
   const initialResult = currentResult;
-  currentResult += +enteredNumber;
-  createAndWriteOutput("+", initialResult, enteredNumber);
-  writeToLog('Add',initialResult,enteredNumber,currentResult);
+  let mathOperator;
+  if (calculationType === "Add") {
+    currentResult += +enteredNumber;
+    mathOperator = "+";
+  } else if (calculationType === "Subtract") {
+    currentResult -= +enteredNumber;
+    mathOperator = "-";
+  } else if (calculationType === "Multiply") {
+    currentResult *= +enteredNumber;
+    mathOperator = "*";
+  } else if (calculationType === "Divide") {
+    currentResult /= +enteredNumber;
+    mathOperator = "/";
+  } else {
+    console.log("An Error Occured");
+  }
+
+  createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+};
+
+const add = (num1, num2) => {
+  calculateResult("Add");
 };
 
 const subtract = () => {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult -= +enteredNumber;
-  createAndWriteOutput("-", initialResult, enteredNumber);
-  writeToLog('SUBTRACT',initialResult,enteredNumber,currentResult);
+  calculateResult("Subtract");
 };
 
 const multiply = () => {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult *= +enteredNumber;
-  createAndWriteOutput("*", initialResult, enteredNumber);
-  writeToLog('MULTIPLY',initialResult,enteredNumber,currentResult);
+  calculateResult("Multiply");
 };
 
 const divide = () => {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult /= +enteredNumber;
-  createAndWriteOutput("/", initialResult, enteredNumber);
-  writeToLog('DIVIDE',initialResult,enteredNumber,currentResult);
+  calculateResult("Divide");
 };
 
 addbtn.addEventListener("click", add);
